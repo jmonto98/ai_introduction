@@ -1,45 +1,43 @@
-# Algoritmo A*Search para encontrar la ruta óptima a Bucarest
+## Respuestas a las preguntas del taller:
 
-## Análisis del problema
+### 1. Estructura del problema y funciones:
 
-El problema consiste en encontrar la ruta óptima desde Arad hasta Bucarest utilizando el algoritmo A* (A search). 
-Este es un problema clásico de búsqueda de caminos en grafos, donde:
+- **Actions:**  
+  Las acciones posibles son moverse arriba, abajo, izquierda o derecha (definidas en el diccionario `actions` de la clase `Problem`).
 
-- Las ciudades representan nodos
-- Las carreteras entre ciudades son aristas con costos asociados (distancias)
-- Necesitamos encontrar el camino con el menor costo total desde el origen (Arad) al destino (Bucarest)
+- **Result:**  
+  La función `result` calcula el nuevo estado aplicando una acción a un estado actual.
 
-El algoritmo A* es ideal para este tipo de problemas porque combina:
-1. El costo real desde el nodo inicial (g(n))
-2. Una estimación heurística del costo hasta el nodo objetivo (h(n))
+- **Action-cost:**  
+  Todos los movimientos tienen costo 1 (función `action_cost`).
 
-## Aplicación del algoritmo A*Search
+### 2. Cambio en la función de costo:
 
-Para implementar A* en este problema:
+- Si cambiamos la función de costo (por ejemplo, dar más costo a movimientos verticales), el algoritmo priorizará caminos con más movimientos horizontales. Esto afectaría la optimalidad del camino encontrado.
 
-1. **Definición de la heurística**: Usamos la distancia en línea recta (distancia euclidiana) desde cada ciudad a Bucarest como función heurística (h(n)). Esta es admisible (no sobreestima el costo real) y consistente.
+### 3. Múltiples salidas:
 
-2. **Función de evaluación**: f(n) = g(n) + h(n), donde:
-   - g(n) = costo acumulado desde Arad hasta el nodo actual
-   - h(n) = distancia heurística desde el nodo actual a Bucarest
+- Implementé una función `find_nearest_exit` que busca todas las salidas y encuentra el camino más corto a cualquiera de ellas.
+  
+- El algoritmo se modifica para evaluar cada salida potencial y seleccionar la más cercana.
 
-3. **Implementación**:
-   - Se expanden primero los nodos con menor f(n)
-   - Se mantiene una cola de prioridad (frontera) ordenada por f(n)
-   - Se registran los nodos visitados para evitar ciclos
+### 4. Limitaciones del algoritmo:
 
-4. **Expansión de nodos**: Para cada ciudad, consideramos todas las ciudades vecinas conectadas por carreteras.
+- **Complejidad:**  
+  A* puede ser costoso en memoria para laberintos muy grandes.
 
-## Optimalidad de la ruta encontrada
+- **Heurística:**  
+  La distancia de Manhattan no siempre es la mejor heurística, especialmente en laberintos con muchos obstáculos.
 
-La ruta encontrada por A* es óptima porque:
+- **Óptimo local:**  
+  Puede quedar atrapado en caminos que parecen prometedores pero llevan a callejones sin salida.
 
-1. **Heurística admisible**: La distancia en línea recta nunca sobrestima el costo real del camino, cumpliendo con el requisito fundamental para la optimalidad de A*.
+- **Una sola meta:**  
+  La implementación básica solo busca una meta a la vez.
 
-2. **Heurística consistente**: La diferencia entre las heurísticas de nodos consecutivos no supera el costo real del paso entre ellos, lo que garantiza que el primer camino encontrado sea el óptimo.
+### 5. Mejoras implementadas:
 
-3. **Propiedad de optimalidad de A***: Cuando se usa una heurística admisible y consistente, A* siempre encontrará la solución óptima (el camino con menor costo total).
-
-4. **Exploración ordenada**: A* expande los nodos en orden de su costo estimado total (f(n)), asegurando que cuando se alcanza el objetivo, no existe un camino alternativo con menor costo total.
-
-La implementación proporcionada encuentra la ruta: Arad → Sibiu → Rimnicu Vilcea → Pitesti → Bucarest, que efectivamente es la ruta óptima según las distancias proporcionadas en el problema clásico de Rumania.
+- Rastreo de acciones tomadas (no solo posiciones).
+- Manejo de múltiples salidas.
+- Validación de posiciones en el laberinto.
+- Laberinto más grande con diferentes obstáculos.
