@@ -16,4 +16,6 @@
 
 ---
 
-En este caso, **ambos algoritmos encuentran el mismo camino óptimo** (`A → C → F → J`), pero **BFS es ligeramente más rápido**, mientras que **IDS usa menos memoria**.
+En este caso, **ambos algoritmos encuentran el mismo camino óptimo** (`A → C → F → J`), pero **IDS es ligeramente más rápido**, mientras que en el uso de memoria, se observa el mismo resultado en la mayoría de las ejecuciones.
+
+
