@@ -12,18 +12,19 @@ Este repositorio contiene ejercicios prácticos de algoritmos de búsqueda y res
 ## Estructura del proyecto
 
 ```
-Informe_1/
-  Ejercicio_1/
-    BestFirstSearch.ipynb
-    README.md
-  Ejercicio_2/
-    Big_maze.ipynb
-    Maze_problem.ipynb
-    README.md
-  Ejercicio_3/
-    Subway.ipynb
-    README.md
-requirements.txt
+├── Informe_1
+│   ├── Ejercicio_1
+│   │   ├── BestFirstSearch.ipynb
+│   │   └── README.md
+│   ├── Ejercicio_2
+│   │   ├── Big_maze.ipynb
+│   │   ├── Maze_problem.ipynb
+│   │   └── README.md
+│   └── Ejercicio_3
+│       ├── README.md
+│       └── Subway.ipynb
+├── README.md
+└── requirements.txt
 ```
 
 ## Requisitos
