@@ -59,7 +59,7 @@ Incluye informes, notebooks y ejemplos prácticos de los principales conceptos v
 ### 1. Clonar el repositorio
 
 ```sh
-git clone https://github.com/tu_usuario/ai_introduction.git
+git clone https://github.com/jmonto98/ai_introduction.git
 cd ai_introduction
 ```
 
